@@ -3,11 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import { Navbar } from './components/Navbar'
+import { Navbar } from './components/Navbar/Navbar'
 import { Dashboard } from './pages/Dashboard'
 import { Products } from './pages/Products'
-import { Cart } from './components/Cart'
-import { ProductDetail } from './components/ProductDetail'
+import { Cart } from './components/Cart/Cart'
+import { ProductDetail } from './components/ProductDetail/ProductDetail'
 
 function App() {
   const [product, setProduct] = useState([])

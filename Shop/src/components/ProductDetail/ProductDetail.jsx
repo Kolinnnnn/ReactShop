@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
-import { products } from "./ProductList"
+import { products } from "../ProductList/ProductList"
+import './ProductDetail.css'
 
 export function ProductDetail({addToCart, removeFromCart}) {
     const {productId} = useParams()

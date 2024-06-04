@@ -1,6 +1,5 @@
+import './Navbar.css'
 export function Navbar() {
-    
-  
     return(
         <ul>
             <li><a href="/">Dashboard</a></li>

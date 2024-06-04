@@ -1,0 +1,38 @@
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .product-detail h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .product-detail img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .product-detail p {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  .product-detail button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .product-detail button:hover {
+    background-color: #0069d9;
+  }

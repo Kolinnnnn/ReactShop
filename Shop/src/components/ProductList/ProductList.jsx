@@ -1,3 +1,4 @@
+import './ProductList.css'
 export const products = [{id:1,text:'Ball'},
     {id:2,text:'Chair'},
     {id:3,text:'Bed'},

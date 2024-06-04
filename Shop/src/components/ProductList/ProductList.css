@@ -1,0 +1,18 @@
+.product-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .product-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-list li a {
+    color: #000;
+    text-decoration: none;
+    flex: 1;
+  }
