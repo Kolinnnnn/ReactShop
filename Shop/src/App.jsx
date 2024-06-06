@@ -6,29 +6,25 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import { Navbar } from './components/Navbar/Navbar'
 import { Dashboard } from './pages/Dashboard'
 import { Products } from './pages/Products'
+import { CartPage } from './pages/Cart'
 import { Cart } from './components/Cart/Cart'
 import { ProductDetail } from './components/ProductDetail/ProductDetail'
+import { ProductProvider } from './ProductContext'
 
 function App() {
-  const [product, setProduct] = useState([])
-  const addToCart = (item) => {
-    setProduct([...product,item])
-  }
-  const removeFromCart = (id) => {
-    setProduct(product.filter(item => item.id != id))
-  }
 
   return (
+    <ProductProvider>
     <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Dashboard/>}/>
         <Route path='/products' element={<Products/>}/>
-        <Route path='/cart' element={<Cart/>}/>
-        <Route path='/products/:productId' element={<ProductDetail addToCart={addToCart} removeFromCart={removeFromCart}/>}></Route>
+        <Route path='/cart' element={<CartPage/>}/>
+        <Route path='/products/:productId' element={<ProductDetail/>}></Route>
       </Routes>
     </BrowserRouter>
+    </ProductProvider>
   )
 }
-
 export default App
