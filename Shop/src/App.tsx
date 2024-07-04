@@ -9,6 +9,7 @@ import { Cart } from './components/Cart/Cart'
 import { ProductDetail } from './components/ProductDetail/ProductDetail'
 import { ProductProvider } from './ProductContext'
 import React from "react"
+import { Contact } from './pages/Contact'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/products' element={<Products/>}/>
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='/products/:productId' element={<ProductDetail/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
       </Routes>
     </BrowserRouter>
     </ProductProvider>

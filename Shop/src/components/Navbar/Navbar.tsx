@@ -7,6 +7,7 @@ export function Navbar() {
             <li><a href="/">Dashboard</a></li>
             <li><a href="/products">Products</a></li>
             <li><a href="/cart">Cart</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
     )
   }
