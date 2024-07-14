@@ -1,7 +1,7 @@
 import {createContext, useEffect, useMemo } from "react";
 import { useState } from "react";
 import React from "react"
-type ProductType = {
+export type ProductType = {
     id: number;
     text: string;
     image: string;
