@@ -1,88 +1,86 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import './ContactForm.css';
 
 export function ContactForm() {
-
     type FormDataType = {
         name: string,
         surname: string,
         email: string,
         topic: string
-    }
+    };
 
-    type FormDataErrorType = FormDataType&{
-        counter: number
-    }
+    type FormDataErrorType = Partial<FormDataType>;
 
-    const [submited,setSubmited] = useState<boolean>(false)
-    const [error,setError] = useState<FormDataErrorType>()
-
-    const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-        console.log(e);
-        e.preventDefault()
-        const isValid = validateData()
-        if(isValid == true) {
-            setSubmited(true)
-            setFormData(deafultState)
-        }
-    }
-
-    const validateData = () => {
-        const error = {
-            name : "",
-            surname : "",
-            email : "",
-            topic : "",
-            counter: 0
-        }
-        if(!formData.name) {
-            error.name = "Name is required"
-            error.counter +=1
-        }
-        if(!formData.surname) {
-            error.surname = "Surname is required"
-            error.counter +=1
-        }
-        if(!formData.email) {
-            error.email = "Email is required"
-            error.counter +=1
-        }
-        if(!formData.topic) {
-            error.topic = "Topic is required"
-            error.counter +=1
-        }
-        return error.counter===0
-    }
-
-    const deafultState:FormDataType = {
+    const [submited, setSubmited] = useState<boolean>(false);
+    const [error, setError] = useState<FormDataErrorType>({});
+    const [formData, setFormData] = useState<FormDataType>({
         name: '',
         surname: '',
         email: '',
         topic: ''
-    }
+    });
 
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const isValid = validateData();
+        if (isValid) {
+            setSubmited(true);
+            setFormData({
+                name: '',
+                surname: '',
+                email: '',
+                topic: ''
+            });
+            setError({});
+        } else {
+            setSubmited(false);
+        }
+    };
+
+    const validateData = () => {
+        const errors: FormDataErrorType = {};
+        if (!formData.name) {
+            errors.name = "Name is required";
+        }
+        if (!formData.surname) {
+            errors.surname = "Surname is required";
+        }
+        if (!formData.email) {
+            errors.email = "Email is required";
+        }
+        if (!formData.topic) {
+            errors.topic = "Topic is required";
+        }
+        setError(errors);
+        return Object.keys(errors).length === 0;
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
-            ...formData, [e.target.name]:e.target.value
-        })
-        console.log(e);
-        console.log(formData);
-    }
+            ...formData, [e.target.name]: e.target.value
+        });
+    };
 
-    const [formData,setFormData] = useState<FormDataType>(deafultState)
-
-    return(
+    return (
         <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type="text" value={formData.name} onChange={handleChange} name="name"></input>
-        <label>Surname</label>
-        <input type="text" value={formData.surname} onChange={handleChange} name="surname"></input>
-        <label>Email</label>
-        <input type="email" value={formData.email} onChange={handleChange} name="email"></input>
-        <label>Topic</label>
-        <input type="text" value={formData.topic} onChange={handleChange} name="topic"></input>
-        <button type="submit">Send</button>
-        {submited && <p>Thanks for contacting</p>}
-        {error && <p>{error.email}</p>}
+            <label>Name</label>
+            <input type="text" value={formData.name} onChange={handleChange} name="name" />
+            {error.name && <p className="error">{error.name}</p>}
+
+            <label>Surname</label>
+            <input type="text" value={formData.surname} onChange={handleChange} name="surname" />
+            {error.surname && <p className="error">{error.surname}</p>}
+
+            <label>Email</label>
+            <input type="email" value={formData.email} onChange={handleChange} name="email" />
+            {error.email && <p className="error">{error.email}</p>}
+
+            <label>Topic</label>
+            <input type="text" value={formData.topic} onChange={handleChange} name="topic" />
+            {error.topic && <p className="error">{error.topic}</p>}
+
+            <button type="submit">Send</button>
+            {submited && <p>Thanks for contacting</p>}
         </form>
-    )
-  }
+    );
+}
