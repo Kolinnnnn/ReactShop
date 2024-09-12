@@ -79,7 +79,7 @@ export function ContactForm() {
             <input type="text" value={formData.topic} onChange={handleChange} name="topic" />
             {error.topic && <p className="error">{error.topic}</p>}
 
-            <button type="submit">Send</button>
+            <button type="submit" className="btn">Send</button>
             {submited && <p>Thanks for contacting</p>}
         </form>
     );

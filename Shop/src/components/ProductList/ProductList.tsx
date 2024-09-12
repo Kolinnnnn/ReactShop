@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import './ProductList.css'
 import { ProductContext } from '../../ProductContext'
 import React from "react"
+import './ProductList.css'
 export function ProductList() {
     const contextValue = useContext(ProductContext)
     return <div>
