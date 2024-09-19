@@ -1,5 +1,6 @@
 import React from "react"
+import './Dashboard.css';
 
 export function Dashboard() {
-    return <div>Welcome to shop</div>
+    return <div className="H">Welcome to shop</div>
 }
